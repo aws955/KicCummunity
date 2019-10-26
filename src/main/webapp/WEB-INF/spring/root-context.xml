@@ -4,5 +4,28 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
-		
+	<!-- root-context는 servlet-context 보다 먼저 실행됩니다. DB설정 또는 공유할 객체에 대한 선언을 해줍니다. -->
+	
+	<!-- 하단의 3종류의 bean은 마이바티스 어노테이션을 사용하기 위한 설정입니다. -->
+	<bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<value>classpath:aa/bb/KicCummunity/resource/db.properties</value>
+		</property>
+	</bean>
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.SimpleDriverDataSource">
+		<property name="driverClass" value="${driver}"></property>
+		<property name="url" value="${url}"></property>
+		<property name="username" value="${username}"></property>
+		<property name="password" value="${password}"></property>
+	</bean>
+	<bean id="sqlSessionFactoryBean"
+		class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	
+	<!-- 마이바티스 어노테이션에서 사용하는 다중 인터페이스 선언 시작 -->
+	
+	
 </beans>
