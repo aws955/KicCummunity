@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="client_top.jsp" %>
+<%@ include file="../inc/client_top.jsp" %>
     <!-- **********************************************************************************************************************************************************
         MAIN CONTENT
         *********************************************************************************************************************************************************** -->
@@ -51,4 +51,4 @@
       <!-- /wrapper -->
     <!--main content end-->
     
-<%@ include file="client_bottom.jsp" %>
+<%@ include file="../inc/client_bottom.jsp" %>
